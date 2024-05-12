@@ -1,5 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Dashboard</h1>
+    <h1 class="mb-4">Dashboard</h1>
+
+    <div class="row">
+      <form class="mx-auto col-md-4 col-12" action="" method="post">
+        <div class="mb-3">
+            {{ form.label.errors }}
+            <label class="form-label" for="{{ form.label.id_for_label }}">Label</label>
+            {{ form.label }}
+        </div>
+
+         <div class="mb-3">
+            {{ form.duration.errors }}
+            <label class="form-label" for="{{ form.duration.id_for_label }}">Duration</label>
+            {{ form.duration }}
+        </div>
+
+         <div class="mb-3">
+            {{ form.portion.errors }}
+            <label class="form-label" for="{{ form.portion.id_for_label }}">Portion</label>
+            {{ form.portion }}
+        </div>
+
+        {% csrf_token %}
+        <button class="btn btn-primary w-100" type="submit">Create</button>
+    </form>
+    </div>
 {% endblock %}
